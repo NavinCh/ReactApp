@@ -1,8 +1,10 @@
+var path = require('path');
+
 var config = {
-	entry: './main.js',
+	entry: path.resolve(__dirname, './main.js'),
 
 	output:{
-		path: './',
+		path: path.resolve(__dirname, './'),
 		filename: 'index.js'
 	},
 
@@ -26,4 +28,8 @@ var config = {
 	}
 }
 
-module.exports = config;
+module.exports = function(env) {
+  console.log('env', env);
+
+  return config;
+};
